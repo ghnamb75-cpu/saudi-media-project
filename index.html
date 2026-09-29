@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الإعلام السعودي | من الصحافة التقليدية إلى الإعلام الرقمي</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f7f8f7;
+      color: #17231d;
+      line-height: 1.9;
+    }
+
+    header {
+      background: #0b3d2e;
+      color: white;
+      padding: 18px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        linear-gradient(rgba(11,61,46,0.92), rgba(11,61,46,0.92)),
+        radial-gradient(circle at center, #557b6b, #0b3d2e);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #e7eeea;
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background: white;
+      color: #0b3d2e;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: #0b3d2e;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #65736b;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 18px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      border: 1px solid #e7ebe8;
+    }
+
+    .card h3 {
+      color: #0b3d2e;
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #56635c;
+      font-size: 15px;
+    }
+
+    .timeline {
+      border-right: 3px solid #0b3d2e;
+      padding-right: 30px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: 7px;
+      width: 15px;
+      height: 15px;
+      background: #0b3d2e;
+      border-radius: 50%;
+      border: 4px solid #f7f8f7;
+    }
+
+    .year {
+      color: #0b3d2e;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .timeline-item h3 {
+      margin: 5px 0;
+    }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 17px;
+      border-bottom: 1px solid #e5e9e6;
+      text-align: right;
+    }
+
+    .comparison th {
+      background: #0b3d2e;
+      color: white;
+    }
+
+    .comparison tr:last-child td {
+      border-bottom: none;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #e4e9e5;
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #0b3d2e;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .highlight {
+      background: #0b3d2e;
+      color: white;
+      border-radius: 25px;
+      padding: 55px 35px;
+      text-align: center;
+    }
+
+    .highlight h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .sources {
+      background: white;
+    }
+
+    .sources ul {
+      max-width: 850px;
+      margin: auto;
+      padding-right: 25px;
+    }
+
+    .sources li {
+      margin-bottom: 13px;
+    }
+
+    footer {
+      background: #0b3d2e;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer p {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        font-size: 12px;
+        margin: 0 3px;
+      }
+
+      .hero {
+        min-height: 550px;
+      }
+
+      section {
+        padding: 60px 18px;
+      }
+
+      .comparison {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">🇸🇦 الإعلام السعودي</div>
+
+    <div>
+      <a href="#about">عن المشروع</a>
+      <a href="#timeline">الخط الزمني</a>
+      <a href="#women">المرأة</a>
+      <a href="#digital">الإعلام الرقمي</a>
+      <a href="#newsroom">غرفة الأخبار</a>
+    </div>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <div class="hero-content">
+
+    <span class="badge">مشروع بحثي وتطبيقي مستقل</span>
+
+    <h1>الإعلام السعودي</h1>
+
+    <h2>من الصحافة التقليدية إلى الإعلام الرقمي</h2>
+
+    <p>
+      رحلة تستعرض تطور الإعلام السعودي منذ بدايات الصحافة،
+      مرورًا بالإذاعة والتلفزيون، وصولًا إلى المنصات الرقمية
+      والإعلام الحديث.
+    </p>
+
+    <a class="button" href="#about">ابدأ الرحلة</a>
+
+  </div>
+</section>
+
+
+<section id="about">
+
+  <div class="section-title">
+    <h2>عن المشروع</h2>
+    <p>رحلة تاريخية وتقنية في تطور الإعلام السعودي</p>
+  </div>
+
+  <p class="intro">
+    يستعرض هذا المشروع رحلة تطور الإعلام السعودي، منذ بدايات الصحافة
+    السعودية، مرورًا بنشأة الإذاعة والتلفزيون، وصولًا إلى الإعلام الرقمي
+    والمنصات الحديثة.
+    <br><br>
+    ويركز المشروع على أبرز المحطات التاريخية، ودور الإذاعة،
+    ومشاركة المرأة السعودية في المجال الإعلامي، والتحولات التقنية
+    التي غيرت طريقة إنتاج المحتوى الإعلامي ووصوله إلى الجمهور.
+  </p>
+
+</section>
+
+
+<section id="timeline">
+
+  <div class="section-title">
+    <h2>🕰️ الخط الزمني</h2>
+    <p>أبرز المحطات في تاريخ الإعلام السعودي</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="year">1343هـ / 1924م</div>
+      <h3>صحيفة أم القرى</h3>
+      <p>
+        صدر العدد الأول من جريدة أم القرى في مكة المكرمة،
+        وأصبحت الجريدة الرسمية للمملكة.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1368هـ / 1949م</div>
+      <h3>بداية الإذاعة السعودية</h3>
+      <p>
+        بدأ البث الإذاعي السعودي من مدينة جدة في يوم عرفة،
+        لتدخل المملكة مرحلة جديدة من الاتصال الجماهيري.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">مطلع الستينيات</div>
+      <h3>أول صوت إذاعي نسائي</h3>
+      <p>
+        ظهرت نجدية الحجيلان بوصفها أول صوت إذاعي نسائي
+        عبر الإذاعة السعودية.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1382هـ / 1963م</div>
+      <h3>إنشاء وزارة الإعلام</h3>
+      <p>
+        إنشاء وزارة الإعلام وتعيين جميل الحجيلان أول وزير للإعلام.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1383هـ / 1963م</div>
+      <h3>إنشاء التلفزيون</h3>
+      <p>
+        صدور قرار إنشاء التلفزيون في المملكة.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1385هـ / 1965م</div>
+      <h3>البث التلفزيوني</h3>
+      <p>
+        بدء الإنتاج المحلي والبث التلفزيوني من الرياض وجدة.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1392هـ / 1972م</div>
+      <h3>البث المباشر للحج</h3>
+      <p>
+        انطلاق أول بث مباشر لوقفة عرفات.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1396هـ / 1976م</div>
+      <h3>البث الملون</h3>
+      <p>
+        بدء البث التلفزيوني الملون.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">1403هـ / 1983م</div>
+      <h3>القناة الثانية</h3>
+      <p>
+        إطلاق القناة الثانية باللغة الإنجليزية.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="year">2021م</div>
+      <h3>التحول الرقمي</h3>
+      <p>
+        تدشين منصات رقمية للمحتوى البرامجي والإذاعي.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-title">
+    <h2>📰 البداية: صحيفة أم القرى</h2>
+    <p>من الصحافة الرسمية بدأت رحلة الإعلام السعودي</p>
+  </div>
+
+  <div class="card">
+    <h3>صحيفة أم القرى</h3>
+
+    <p>
+      صدر العدد الأول من جريدة أم القرى في مكة المكرمة
+      في 15 جمادى الأولى 1343هـ الموافق 12 ديسمبر 1924م.
+      وأصبحت الجريدة الرسمية للمملكة العربية السعودية،
+      وتختص بنشر الأنظمة واللوائح والقرارات والأوامر
+      والمراسيم الملكية وغيرها من الوثائق الرسمية.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-title">
+    <h2>📻 الإذاعة السعودية</h2>
+    <p>صوت جديد وصل إلى الجمهور السعودي</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>البداية</h3>
+      <p>
+        بدأ البث الإذاعي السعودي من مدينة جدة عام
+        1368هـ / 1949م في يوم عرفة.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>التوسع</h3>
+      <p>
+        توسعت الإذاعة السعودية لاحقًا في عدد المحطات
+        وتنوع البرامج والجمهور المستهدف.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>تنوع المحتوى</h3>
+      <p>
+        شمل المحتوى الأخبار والبرامج الدينية والثقافية
+        والاجتماعية والترفيهية وبرامج الأطفال.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>تعدد اللغات</h3>
+      <p>
+        امتد البث الإذاعي الدولي السعودي إلى عدد من اللغات،
+        من بينها الفرنسية والتركية والإندونيسية والفارسية.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="women">
+
+  <div class="section-title">
+    <h2>👩🏻‍💼 المرأة في الإعلام السعودي</h2>
+    <p>أسماء صنعت حضورًا مبكرًا للمرأة في الإعلام</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>نجدية الحجيلان</h3>
+      <p>
+        كانت أول صوت إذاعي نسائي ينطلق عبر الإذاعة السعودية
+        في مطلع الستينيات، وقدمت برنامجي «البيت السعيد»
+        و«صباح الخير».
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>فاتنة أمين شاكر</h3>
+      <p>
+        من الأسماء البارزة في البدايات الإعلامية السعودية،
+        إلى جانب مسيرتها الأكاديمية والإعلامية.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>أسماء زعزوع</h3>
+      <p>
+        من الشخصيات البارزة في برامج الأطفال، واشتهرت
+        باسم «ماما أسماء»، وارتبط اسمها بالإذاعة السعودية.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>نوال بخش</h3>
+      <p>
+        من الأسماء المعروفة في تاريخ الإعلام السعودي،
+        وارتبطت بإذاعة الرياض والعمل الإعلامي لسنوات طويلة.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-title">
+    <h2>📺 التلفزيون السعودي</h2>
+    <p>مرحلة جديدة في الاتصال الجماهيري</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>1963م</h3>
+      <p>إنشاء وزارة الإعلام وصدور قرار إنشاء التلفزيون.</p>
+    </div>
+
+    <div class="card">
+      <h3>1965م</h3>
+      <p>بدء الإنتاج المحلي والبث التلفزيوني من الرياض وجدة.</p>
+    </div>
+
+    <div class="card">
+      <h3>1972م</h3>
+      <p>أول بث مباشر لوقفة عرفات.</p>
+    </div>
+
+    <div class="card">
+      <h3>1976م</h3>
+      <p>بدء البث التلفزيوني الملون.</p>
+    </div>
+
+    <div class="card">
+      <h3>1983م</h3>
+      <p>إطلاق القناة الثانية باللغة الإنجليزية.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="digital">
+
+  <div class="section-title">
+    <h2>🌐 التحول الرقمي</h2>
+    <p>من البث التقليدي إلى الإعلام الرقمي</p>
+  </div>
+
+  <div class="highlight">
+
+    <h2>الإعلام لم يعد مرتبطًا بجهاز واحد</h2>
+
+    <p>
+      تطورت وسائل الوصول إلى المحتوى الإعلامي من الصحيفة
+      والراديو والتلفزيون إلى الإنترنت والهواتف المحمولة
+      والمنصات الرقمية.
+    </p>
+
+  </div>
+
+  <br><br>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>💻 الإنترنت</h3>
+      <p>
+        أتاح نشر المحتوى والوصول إليه بصورة أسرع وعلى نطاق أوسع.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📱 الهاتف المحمول</h3>
+      <p>
+        أصبح الجمهور قادرًا على متابعة الأخبار والمحتوى
+        من أي مكان وفي أي وقت.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📲 المنصات الرقمية</h3>
+      <p>
+        اتجهت المؤسسات الإعلامية إلى إطلاق منصات رقمية
+        للمحتوى البرامجي والإذاعي.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💬 التفاعل</h3>
+      <p>
+        أصبح الجمهور مشاركًا ومتفاعلًا مع المحتوى بدلًا
+        من كونه مستقبلًا فقط.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-title">
+    <h2>🔄 الإعلام من الماضي إلى الحاضر</h2>
+  </div>
+
+  <table class="comparison">
+
+    <tr>
+      <th>الإعلام سابقًا</th>
+      <th>الإعلام اليوم</th>
+    </tr>
+
+    <tr>
+      <td>الصحيفة المطبوعة</td>
+      <td>المواقع والمنصات الرقمية</td>
+    </tr>
+
+    <tr>
+      <td>أجهزة الراديو التقليدية</td>
+      <td>البث الرقمي والبودكاست</td>
+    </tr>
+
+    <tr>
+      <td>انتظار موعد البرنامج</td>
+      <td>المحتوى عند الطلب</td>
+    </tr>
+
+    <tr>
+      <td>التفاعل المحدود مع الجمهور</td>
+      <td>التفاعل الفوري والمباشر</td>
+    </tr>
+
+    <tr>
+      <td>سرعة نشر محدودة</td>
+      <td>نشر وتحديث مستمر</td>
+    </tr>
+
+  </table>
+
+</section>
+
+
+<section id="newsroom">
+
+  <div class="section-title">
+    <h2>🚨 غرفة أخبار افتراضية</h2>
+    <p>تطبيق عملي لمحاكاة التعامل مع خبر عاجل</p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="number">1</div>
+      <h3>استقبال الخبر</h3>
+      <p>استلام المعلومات الأولية.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">2</div>
+      <h3>التحقق</h3>
+      <p>التأكد من صحة المعلومات.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">3</div>
+      <h3>التواصل</h3>
+      <p>التواصل مع المصادر.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">4</div>
+      <h3>التحرير</h3>
+      <p>إعداد الصياغة المناسبة.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">5</div>
+      <h3>النشر</h3>
+      <p>نشر الخبر بعد التحقق.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">6</div>
+      <h3>المتابعة</h3>
+      <p>تحديث الخبر عند ظهور معلومات جديدة.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-title">
+    <h2>🤖 مستقبل الإعلام السعودي</h2>
+    <p>التقنية تعيد تشكيل صناعة الإعلام</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>الذكاء الاصطناعي</h3>
+      <p>استخدام التقنيات الذكية في إنتاج وتحليل المحتوى.</p>
+    </div>
+
+    <div class="card">
+      <h3>صحافة البيانات</h3>
+      <p>تحويل البيانات والمعلومات إلى قصص إعلامية.</p>
+    </div>
+
+    <div class="card">
+      <h3>المحتوى القصير</h3>
+      <p>انتشار الفيديوهات والمحتوى السريع عبر المنصات الرقمية.</p>
+    </div>
+
+    <div class="card">
+      <h3>التفاعل المباشر</h3>
+      <p>زيادة مشاركة الجمهور وتفاعله مع المؤسسات الإعلامية.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="highlight">
+
+    <h2>🇸🇦 الخلاصة</h2>
+
+    <p>
+      يمثل تاريخ الإعلام السعودي رحلة طويلة من التطور بدأت
+      بالصحافة المطبوعة، ثم الإذاعة والتلفزيون، وصولًا إلى
+      الإنترنت والمنصات الرقمية.
+      <br><br>
+      ولم يقتصر هذا التطور على تغيير وسائل نشر المحتوى،
+      بل شمل أيضًا طريقة إنتاج الأخبار وسرعة وصولها إلى الجمهور
+      وطبيعة تفاعل الجمهور معها.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="sources">
+
+  <div class="section-title">
+    <h2>📚 المصادر والمراجع</h2>
+    <p>المصادر المستخدمة في إعداد المشروع</p>
+  </div>
+
+  <ul>
+    <li>جريدة أم القرى – عن أم القرى.</li>
+    <li>جريدة أم القرى – تاريخ الإعلام السعودي.</li>
+    <li>وكالة الأنباء السعودية – تاريخ الإذاعة السعودية.</li>
+    <li>وكالة الأنباء السعودية – تاريخ التلفزيون السعودي.</li>
+    <li>وكالة الأنباء السعودية – التحول الرقمي في الإعلام.</li>
+    <li>سعوديبيديا – فاتنة أمين شاكر.</li>
+    <li>سعوديبيديا – أسماء زعزوع.</li>
+    <li>سعوديبيديا – جميل الحجيلان.</li>
+    <li>وكالة الأنباء السعودية – نوال بخش.</li>
+  </ul>
+
+</section>
+
+
+<footer>
+
+  <p>🇸🇦 مشروع بحثي وتطبيقي مستقل عن الإعلام السعودي</p>
+  <p>إعداد: غنام عبدالله</p>
+
+</footer>
+
+</body>
+</html>
